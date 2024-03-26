@@ -1,34 +1,34 @@
 <?php
 //// NÚMEROS E OPERADORES
+
 // Operações Básicas
 $num1 = 10;
 $num2 = 5;
-echo "Valor A $num1 e valor B $num2 <br>";
+echo "Valor A= $num1 e valor B= $num2 <br>";
 
 // Soma
 $soma = $num1 + $num2;
-echo "Soma: $soma <br>"; 
+echo "Soma: $soma <br>";
 
 // Subtração
 $subtracao = $num1 - $num2;
-echo "Subtração: $subtração <br>";
+echo "Subtração: $subtracao <br>";
 
 // Multiplicação
 $multiplicacao = $num1 * $num2;
-echo "Multiplicação: $multiplicacao <br>"; 
+echo "Multiplicação: $multiplicacao <br>";
 
 // Divisão
 $divisao = $num1 / $num2;
-echo "Divisao: $divisao <br>"; 
-$modulo = $num1 % $num2;
+echo "Divisão: $divisao <br>";
 
 // Módulo (Resto da Divisão)
 $modulo = $num1 % $num2;
-echo "Modulo: $modulo <br> ";
+echo "Módulo: $modulo <br>";
 
-// Operadores de Incremento e Decremento 
+// Operações de  Incremento e Decremento
 $num = 5;
-echo "Valor sabe para incremento e decremento = $num <br>";
+echo "Valor base para incremento e decremento = $num <br>";
 
 // Incremento
 $num++;
@@ -50,42 +50,42 @@ echo $num1 == $num2 ? "Verdadeiro <br>" : "Falso <br>";
 echo "Diferente de: ";
 echo $num1 != $num2? "Verdadeiro <br>" : "Falso <br>";
 
-//Maior que  
+// Maior que
 echo "Maior que: ";
-echo $num1 > $num2? "Verdadeiro <br>" : "Falso <br>";
+echo $num1 > $num2 ? "Verdadeiro <br>" : "Falso <br>";
 
-// Menor que  
+// Menor que
 echo "Menor que: ";
-echo $num1 < $num2 ?  "Verdadeiro <br>" : "Falso <br>";
+echo $num1 < $num2 ? "Verdadeiro <br>" : "Falso <br>";
 
 echo "<hr>";
-//// Operadores Lógios
+//// Operadores Lógicos
 
 // E lógico (AND)
 echo "Verdadeiro e Verdadeiro: ";
 echo true && true ? "Verdadeiro <br>" : "Falso <br>";
 
 echo "Verdadeiro e Falso: ";
-echo  true && false ? "Verdadeiro <br>" : "Falso <br>";
+echo true && false ? "Verdadeiro <br>" : "Falso <br>";
 
 echo "Falso e Verdadeiro: ";
-echo  false && true? "Verdadeiro <br>" : "Falso <br>";
+echo false && true ? "Verdadeiro <br>" : "Falso <br>";
 
 echo "Falso e Falso: ";
-echo  false && false ? "Verdadeiro <br>" : "Falso <br>";
+echo false && false ? "Verdadeiro <br>" : "Falso <br>";
 
-// OR lógico (OR)
+// OU lógico (OR)
 echo "Verdadeiro ou Verdadeiro: ";
-echo   true || true ? "Verdadeiro <br>" : "Falso <br>";
+echo true || true ? "Verdadeiro <br>" : "Falso <br>";
 
-echo  "Verdadeiro ou Falso: ";
-echo  true || false ? "Verdadeiro  <br>" : "Falso <br>";
+echo "Verdadeiro ou Falso: ";
+echo true || false ? "Verdadeiro <br>" : "Falso <br>";
 
-echo  "Falso ou Verdadeiro: ";
-echo  false || true ? "Verdadeiro <br>":"Falso <br>";
+echo "Falso ou Verdadeiro: ";
+echo false || true ? "Verdadeiro <br>" : "Falso <br>";
 
-echo  "Falso ou Falso:";
-echo  false || false ? "Verdadeiro <br>" :"Falso <br>";
+echo "Falso ou Falso: ";
+echo false || false ? "Verdadeiro <br>" : "Falso <br>";
 
 // Não lógico (NOT)
 echo "Negando algo que é verdadeiro: ";
