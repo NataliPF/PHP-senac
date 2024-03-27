@@ -18,6 +18,53 @@
     Exercício 6 - Posição da Primeira Ocorrência:
     Crie uma variável contendo uma lista de compras. Use a função strpos() para encontrar a posição da primeira ocorrência do item "leite" na lista de compras e exiba a posição encontrada.
 
+    //Exercício 7 - Inversão de uma String:
+    //Crie uma variável contendo uma palavra. Inverta a palavra e exiba o resultado.
+
+        // 1
+        $nome = "Ana";
+        $profissao = "Engenharia";
+        $frase = $nome . " é " . $profissao;
+        echo $frase . "<br>";
+    
+        // 2 
+        $senha = "senha123";
+    
+        if(strlen($senha) >= 8) {
+            echo "Senha válida. <br>";
+        } else {
+            echo "Senha deve ter pelo menos 8 caractares <br>";
+        }
+    
+        //3
+        $frase = "O cachorro late alto.";
+        $nova_frase = str_replace("cachorro", "gato", $frase);
+        echo $nova_frase ."<br>";
+    
+        //4
+        $palavra = "ExEmPlO";
+        $palavra_minuscula = strtolower($palavra);
+        $palavra_maiuscula = strtoupper($palavra);
+    
+        echo "Plavara em minúsculoas: $palavra_minuscula <br>";
+        echo "Plavara em maiúsculas: $palavra_maiuscula <br>";
+    
+        //5
+        $url = "           http://exemplo.com  ";
+        $url_sem_espacos = trim($url);
+        echo $url_sem_espacos ."<br>";
+    
+        //6
+        $lista_compras = "arroz, feijao, leite, carne";
+        $posicao_leite = strpos($lista_compras, "leite");
+        echo "A posicao do item 'leite' na lsita de compras é: $posicao_leite <br>";
+    
+        //7
+        $palavra = "abcd1234";
+        $palavra_invertida = strrev($palavra);
+        echo $palavra_invertida;
+    ?>
+?>
     Exercício 7 - Inversão de uma String:
     Crie uma variável contendo uma palavra. Inverta a palavra e exiba o resultado.
 */
