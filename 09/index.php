@@ -1,52 +1,53 @@
 <?php
 
 function nomeDaFuncao() {
-// Bloco de código da função
+    // Bloco de código da função
 }
 
 // Declaração de função sem parâmetros e sem retorno
 function saudacao() {
-
-    echo "Olá TII04! <br> ";
+    echo "Olá, TII04! <br>";
 }
+
 saudacao(); // Chamada da função
 
-// Declaração de uma função que retorna um valor 
+// Declaração de uma função que retorna um valor
 function saudacao_retorno() {
-    return "Olá, TII04! <br>";
+    return "Olá, TII04% <br>";
 }
 
 echo saudacao_retorno(); // Chamada de função com retorno
 
-// Declaração de uma função que recebe parametro
+// Declaração de uma função que recebe parâmetro
 function saudacao_parametro($nome) {
     echo "Olá, $nome& <br>";
 }
 
 saudacao_parametro("TII04"); // Chamada de função com retorno
 
-// Declaração de uma função que recebe um parâmetro e retorno algo
+// Declaração de uma função que recebe um parâmetro e retorna algo
 function saudacao_parametro_retorno($nome) {
-    return "Olá, $nome* <br> ";
+    return "Olá, $nome* <br>";
 }
 
-echo saudacao_parametro_retorno( "TII04" ); 
-function soma ($a, $b) {
+echo saudacao_parametro_retorno("TII04");
+
+// Declaração de uma função que recebe dois parametros e realiza um retorno
+function soma($a, $b) {
     return $a + $b;
-    }
+}
 
-    $resultado = soma (8, 16);
-    echo "A soma de 8 com 16 é:" . soma(8, 16) . "<br>";
+echo "A soma de  8 com 16 é: " . soma(8, 16) . "<br>";
 
-    # ESCOPO DAS VARIÁVEIS!!!
+# ESCOPO DAS VARIÁVEIS!!!
 
-    $mensagem = "Olá"; // Variável global
+$mensagem = "Olá"; // Variável global
 
-    function mostrarMensagem() {
-        $mensagem = "Mundo"; // Variável local
-        echo $mensagem; // Saída: Mundo
-    }
+function mostrarMensagem() {
+    $mensagem = "Mundo"; // Variável local
+    echo $mensagem; // Saída: Mundo
+}
 
-    mostrarMensagem();
-    echo $mensagem; // Saída: Olá
+mostrarMensagem();
+echo $mensagem; // Saída: Olá
 ?>
