@@ -31,7 +31,8 @@ abstract class Personagem {
         }
     }
 
-    public function recuperarVida() {
+    public function recuperarVida($quantidade) {
+        
 
     }
 
@@ -49,10 +50,12 @@ class Guerreiro extends Personagem {
 //$personagem1 = new Personagem();
 
 $guerreiro = new Guerreiro("Aragorn", 100, 20);
+$mago = new Mago ("Gandalf, 80, 30");
+
 echo "Dados do Guerreiro: <br>";
 $guerreiro->exibirDados();
 
 $guerreiro->sofrerDano(120);
 echo "Sofreu dano de 120";
-$guerreiro->exibirDados();
+
 ?>
