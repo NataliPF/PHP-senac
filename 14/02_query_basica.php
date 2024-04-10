@@ -13,7 +13,15 @@ $consulta = "SELECT * FROM contato_info";
 // Executa a query e armazena o resultado em uma variável
 $result  = $connection->query($consulta);
 
-// Exibe os resultados em tela
+//vendo os dados
+while ($row = $result->fetch_assoc()) {
+    echo "Id: " . $row['id'] . "<br>";
+    echo "Nome: " . $row['nome'] . "<br>";
+    echo "Email: " . $rom['email'] . "<br>";
+    echo "<hr>";
+}
+
+    // Exibe os resultados em tela
 print_r($result);
 
 // Fecha a conexão
