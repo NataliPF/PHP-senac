@@ -41,4 +41,6 @@ if ($stmt) {
 } else {
     echo "Erro na consulta preparada: " . $connection->error;
 }
+
+$connection->close();
 ?>

@@ -41,3 +41,4 @@ if ($stmt) {
 
 // Fecha a conexão com banco de dados
 $connection->close();
+?>
