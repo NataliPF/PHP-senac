@@ -1,51 +1,57 @@
 <?php
+require_once 'DatabaseRepository.php';
 
-require_once '../database/ClienteRepository.php';
-
-$action = $_GET['action'];
-
-switch($action) {
-    case 'listar':
-        listarClientes();
-        break;
-    case 'buscar':
-        buscarClientePorId();
-        break;
-    case 'cadastrar':
-        cadastrarCliente();
-        break;
-    case 'atualizar':
-        atualizarCliente();
-    case 'excluir':
-        excluirCliente();
-        break;
-    default:
-        http_response_code(400); // Requisição inválida
-        echo json_encode(['error' => 'Ação inválida']);
-}
-
-function listarClientes() {
-    $clientes = ClienteRepository::getAllClientes();
-    echo json_encode($clientes);
-}
-
-function buscarClientePorId() {
+class ClienteRepository {
     
+    public static function getAllClientes() {
+        $connection = DatabaseRepository::connect();
+        $result = $connection->query("SELECT * FROM cliente");
+        
+        $clientes = [];
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $clientes[] = $row;
+            }
+        }
+
+        $connection->close();
+        return $clientes;
+    }
+
+    public static function getClienteById($id) {
+        $connection = DatabaseRepository::connect();
+        $sql = "SELECT * FROM cliente WHERE id = $id";
+        $result = $connection->query($sql);
+
+        $cliente = null;
+        if($result->num_rows > 0) {
+            $cliente = $result->fetch_assoc();
+        }
+        $connection->close();
+        return $cliente;
+    }
+
+    public static function insertCliente($nome, $cpf) {
+        $connection = DatabaseRepository::connect();
+        $sql = "INSERT INTO cliente (nome, cpf) VALUES ('$nome', '$cpf')";
+        $success = $connection->query($sql);
+        $connection->close();
+        return $success;
+    }
+
+    public static function updateCliente($id, $nome, $cpf) {
+        $connection = DatabaseRepository::connect();
+        $sql = "UPDATE cliente SET nome='$nome', cpf='$cpf' WHERE id=$id";
+        $success = $connection->query($sql);
+        $connection->close();
+        return $success;
+    }
+
+    public static function deleteCliente($id) {
+        $connection = DatabaseRepository::connect();
+        $success = $connection->query("DELETE FROM cliente WHERE id=$id");
+        $connection->close();
+        return $success;
+    }
 }
-
-function cadastrarCliente() {
-
-}
-
-function atualizarCliente() {
-
-}
-
-function excluirCliente() {
-
-}
-// Create Read Update Ddelete
-// Create = POST (INSERT)
-// Read = GET (SELECT)
-// Update = POST(GET) (UPDATE SET)
-// Delete = POST (DELETE)
+?>
