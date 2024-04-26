@@ -14,34 +14,57 @@ class ProdutoRepository {
                 $produtos[] = $produto;
             }
         }
+        $connection->close();
         return $produtos;
     }
 
-    public static function getAllProdutoById($id) {
+    public static function getProdutoById($id) {
         $connection = DatabaseRepository::connect();
-       $result= $connection->query("SELECT * FROM produto WHERE id = $id");
+        $result = $connection->query("SELECT * FROM produto WHERE id = $id");
 
-       $produto = null;
-
+        $produto = null;
         if($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $produto = new Produto($row['id'], $row['nome'], $row['descricaoo'], $row['preco']);
+            $produto = new Produto($row['id'], $row['nome'], $row['descricao'], $row['preco']);
         }
         $connection->close();
         return $produto;
     }
 
     public static function insertProduct(Produto $produto) {
-    $connection = DatabaseRepository::connect();
-    
-    $nome= $produto->getNome();
-    $descricao = $produto->getDescricao();
-    $preco = $produto->getPreco();
+        $connection = DatabaseRepository::connect();
 
-    $sql = "INSERT INTO produto (nome, descricao, preco) VALUES ('$nome', '$descricao', '$preco')";
+        $nome = $produto->getNome();
+        $descricao = $produto->getDescricao();
+        $preco = $produto->getPreco();
+
+        $sql = "INSERT INTO produto (nome, descricao, preco) VALUES ('$nome', '$descricao', '$preco')";
         $success = $connection->query($sql);
         $connection->close();
         return $success;
     }
+
+    public static function updateProduto(Produto $produto) {
+        $connection = DatabaseRepository::();
+        $id = $produto->getId();
+        $nome = $produto->getNome();
+        $descricao = $produto->getDescricao();
+        $preco= $produto->getpreco();
+
+        $sql = "UPDATE produto SET nome='$nome', descricao='$descricao', preco='$preco'
+        WHERE id=$id";
+        
+        $success = $connection->query($sql);
+        $connection->close();
+
+        return $success;
+
+        }
+        public static function deleteProduto($id) {
+            $connection = DatabaseRepository::connect();
+            $success = $connection->query("DELETE FROM produto WHERE id = $id");
+            $connection->close();
+            return $success;
+        }
 }
 ?>
