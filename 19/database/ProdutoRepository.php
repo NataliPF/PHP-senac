@@ -45,7 +45,7 @@ class ProdutoRepository {
     }
 
     public static function updateProduto(Produto $produto) {
-        $connection = DatabaseRepository::();
+        $connection = DatabaseRepository::connect();
         $id = $produto->getId();
         $nome = $produto->getNome();
         $descricao = $produto->getDescricao();
