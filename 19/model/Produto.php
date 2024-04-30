@@ -13,8 +13,13 @@ class Produto implements JsonSerializable {
     }
 
     public function getId() {
+<<<<<<< HEAD
     return $this->id;
 }
+=======
+        return $this->id;
+    }
+>>>>>>> 86c3d8a (19 - Atualização)
 
     public function getNome() {
         return $this->nome;
@@ -27,6 +32,7 @@ class Produto implements JsonSerializable {
     public function getPreco() {
         return $this->preco;
     }
+
 
     public function jsonSerialize(): array {
         return [
