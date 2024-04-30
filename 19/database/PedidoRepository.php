@@ -58,5 +58,56 @@ class PedidoRepository {
     public static function deletePedido() {
 
     }
-}
+
+    public static function getPedidoById($id) {
+        $connection = DatabaseRepository::connect();
+        $result = $connection->query("SELECT * FROM pedido WHERE id = $id");
+        
+        $pedido = null;
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $pedido = new Pedido($row['id'], $row['data_pedido'], $row['status']);
+
+            $connection->close;
+            return $pedido;
+        }
+    }
+
+    public static function insertPedido(Pedido $pedido) {
+        $connection = DatabaseRepository::connect();
+
+        $id = $pedido->getId();
+        $data_pedido= $pedido->getDataPedido();
+        $status = $pedido->getStatus();
+
+        $sql = "INSERT INTO (id, data_pedido, status) VALUES ('$id', '$data_pedido', '$status')";
+        $success = $connection->query($sql);
+        $connection->close();
+        return $success;
+
+    }
+
+    public static function updatePedido(Pedido $pedido) {
+        $connection = DatabaseRepository::connect();
+        $id = $pedido->getId();
+        $data_pedido= $pedido->getDataPedido();
+        $status = $pedido->getStatus();
+
+        $sql =  "UPDATE pedido SET data_pedido = '$data_pedido', status = '$status' WHERE id = $id";
+        $success = $connection->query($sql);
+           $connection->close();
+           return $success;
+       }
+
+       public static function deletePedido($id) {
+        $connection = DatabaseRepository::connect();
+        $success = $connection->query("DELETE * FROM pedido WHERE id=$id");
+        $connection->close();
+        return $success;
+        
+       }
+    }
+
+   
 ?>
