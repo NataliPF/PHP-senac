@@ -31,11 +31,7 @@ class ProdutoRepository {
         return $produto;
     }
 
-<<<<<<< HEAD
-    public static function insertProduct(Produto $produto) {
-=======
     public static function insertProduto(Produto $produto) {
->>>>>>> 86c3d8a (19 - Atualização)
         $connection = DatabaseRepository::connect();
 
         $nome = $produto->getNome();
@@ -53,32 +49,14 @@ class ProdutoRepository {
         $id = $produto->getId();
         $nome = $produto->getNome();
         $descricao = $produto->getDescricao();
-<<<<<<< HEAD
-        $preco= $produto->getpreco();
-
-        $sql = "UPDATE produto SET nome='$nome', descricao='$descricao', preco='$preco'
-        WHERE id=$id";
-        
-=======
         $preco = $produto->getPreco();
 
         $sql = "UPDATE produto SET nome='$nome', descricao='$descricao', preco='$preco'
                 WHERE id=$id";
->>>>>>> 86c3d8a (19 - Atualização)
         $success = $connection->query($sql);
         $connection->close();
 
         return $success;
-<<<<<<< HEAD
-
-        }
-        public static function deleteProduto($id) {
-            $connection = DatabaseRepository::connect();
-            $success = $connection->query("DELETE FROM produto WHERE id = $id");
-            $connection->close();
-            return $success;
-        }
-=======
     }
 
     public static function deleteProduto($id) {
@@ -87,6 +65,5 @@ class ProdutoRepository {
         $connection->close();
         return $success;
     }
->>>>>>> 86c3d8a (19 - Atualização)
 }
 ?>

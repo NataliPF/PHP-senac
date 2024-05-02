@@ -19,6 +19,13 @@ class PedidoRepository {
         return $pedidos;
     }
 
+    public static function getPedidoWithProdutos($id) {
+        $connection = DatabaseRepository::connect();
+
+        $sql = "SELECT Pedido.*, Produto.* FROM Pedido INNER JOIN Produto ON Pedido.id = Produto.pedido_id WHERE Pedido.id = $id";
+        $result = $connection->query($sql);
+    }
+
     public static function getPedidoById($id) {
         $connection = DatabaseRepository::connect();
         $result = $connection->query("SELECT * FROM pedido WHERE id = $id");
